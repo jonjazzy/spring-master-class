@@ -14,13 +14,13 @@ public class BeforeAspect
     private Logger LOGGER = LoggerFactory.getLogger(BeforeAspect.class);
 
     //Define what calls you want to intercept
-    @Before("execution(* com.jonjazzy.demo.business.*.*(..))")
+    @Before("execution(* com.jonjazzy.demo.data.*.*(..))")
     /*
-        specify this is a before method, and define the method you want to intercept.
-        @Before("execution(* PACKAGE.*.*(..))") means intercept all
-        Intercepts before the call has happened
+       @Before("execution(* com.jonjazzy.demo..*.*(..))")
+       This will intercecpt everything in com.jonjazzy.demo, including the Dao methods
 
-        E.g., checking user access before method is run
+       @Before("execution(* com.jonjazzy.demo.data.*.*(..))")
+       This will intercecpt everything in com.jonjazzy.demo, including the Dao methods
      */
     public void before(JoinPoint joinPoint)
     {

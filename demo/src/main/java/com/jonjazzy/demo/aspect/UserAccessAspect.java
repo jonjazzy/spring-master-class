@@ -14,19 +14,31 @@ public class UserAccessAspect
     private Logger LOGGER = LoggerFactory.getLogger(UserAccessAspect.class);
 
     //Define what calls you want to intercept
-    @Before("execution(* com.jonjazzy.demo.business.*.*(..))")
+    @Before("execution(* com.jonjazzy.demo.data.*.*(..))")  //
     /*
-        specify this is a before method, and define the method you want to intercept.
-        @Before("execution(* PACKAGE.*.*(..))") means intercept all
-        Intercepts before the call has happened
+        PointCut --> Defines what kind of methods you want to intercept
+        e.g. execution(* com.jonjazzy.demo.data.*.*(..))
 
-        E.g., checking user access before method is run
+        Advice --> What should i do after intercepting
+
+        Aspect --> Combination of PointCut & Advice.
+
+        JoinPoint --> A specific execution instance (that has been intercepted)
+
+        Weaving --> Process of implementing the AOP around your method calls
+
+        Weaver --> THe framework which implements weaving, is called a Weaver (in our case Spring AOP)
+
+       @Before("execution(* com.jonjazzy.demo.business.*.*(..))")
+       This will intercept only the business methods in com.jonjazzy.demo.business
+
+       @Before("execution(* com.jonjazzy.demo.data.*.*(..))")
+       This will intercept only the dao methods in com.jonjazzy.demo.data
      */
     public void before(JoinPoint joinPoint)
     {
+        //Advice
         LOGGER.info("Checking if user has correct access");
-
-        //when you intercept, what do you do?
         LOGGER.info("Intercepted a method call:- {}", joinPoint);
     }
 }

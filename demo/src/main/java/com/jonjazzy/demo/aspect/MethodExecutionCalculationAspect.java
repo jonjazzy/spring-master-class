@@ -13,7 +13,8 @@ public class MethodExecutionCalculationAspect
 {
     private Logger LOGGER = LoggerFactory.getLogger(MethodExecutionCalculationAspect.class);
 
-    @Around("execution(* com.jonjazzy.demo.data.*.*(..))")
+//    @Around("execution(* com.jonjazzy.demo.data.*.*(..))")
+    @Around("com.jonjazzy.demo.aspect.CommonJoinPointConfig.dataLayerExecutionPointcut()")
     public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         //my startTime is x
         long startTime = System.currentTimeMillis();

@@ -14,7 +14,7 @@ public class UserAccessAspect
     private Logger LOGGER = LoggerFactory.getLogger(UserAccessAspect.class);
 
     //Define what calls you want to intercept
-    @Before("execution(* com.jonjazzy.demo.data.*.*(..))")  //
+    @Before("com.jonjazzy.demo.aspect.CommonJoinPointConfig.dataLayerExecutionPointcut()")  //
     /*
         PointCut --> Defines what kind of methods you want to intercept
         e.g. execution(* com.jonjazzy.demo.data.*.*(..))
@@ -38,7 +38,7 @@ public class UserAccessAspect
     public void before(JoinPoint joinPoint)
     {
         //Advice
-//        LOGGER.info("Checking if user has correct access");
-//        LOGGER.info("Intercepted a method call:- {}", joinPoint);
+        LOGGER.info("Checking if user has correct access");
+        LOGGER.info("Intercepted a method call:- {}", joinPoint);
     }
 }

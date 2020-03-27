@@ -1,6 +1,7 @@
 package com.jonjazzy.demo;
 
 import com.jonjazzy.demo.business.Business1;
+import com.jonjazzy.demo.business.Business2;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,11 +18,12 @@ public class SpringAopBasicsApplication implements CommandLineRunner {
 	Business1 business1;
 
 	@Autowired
-	Business1 business2;
+	Business2 business2;
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringAopBasicsApplication.class, args);
 	}
+
 
 	@Override
 	public void run(String... args) throws Exception {

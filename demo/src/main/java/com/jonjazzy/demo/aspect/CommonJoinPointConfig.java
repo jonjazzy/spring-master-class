@@ -1,9 +1,15 @@
 package com.jonjazzy.demo.aspect;
 
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Pointcut;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class CommonJoinPointConfig
 {
+    Logger LOGGER = LoggerFactory.getLogger(CommonJoinPointConfig.class);
+
     @Pointcut("execution(* com.jonjazzy.demo.data.*.*(..))")
     public void dataLayerExecutionPointcut(){}
 
@@ -21,4 +27,7 @@ public class CommonJoinPointConfig
     //intercept all calls within data package
     @Pointcut("within(com.jonjazzy.demo.data..*)")
     public void allCallsWithinPackage(){}
+
+    @Pointcut("@annotation(com.jonjazzy.demo.aspect.TrackTime)")
+    public void trackTimeAnnotation(){}
 }

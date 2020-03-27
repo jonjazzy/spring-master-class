@@ -38,7 +38,7 @@ public class UserAccessAspect
     public void before(JoinPoint joinPoint)
     {
         //Advice
-        LOGGER.info("Checking if user has correct access");
-        LOGGER.info("Intercepted a method call:- {}", joinPoint);
+//        LOGGER.info("Checking if user has correct access");
+//        LOGGER.info("Intercepted a method call:- {}", joinPoint);
     }
 }

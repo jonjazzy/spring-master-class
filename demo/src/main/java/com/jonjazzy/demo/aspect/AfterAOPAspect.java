@@ -16,13 +16,13 @@ public class AfterAOPAspect
     // which ensures that an advice runs after the method executes successfully.
     @AfterReturning(
 //            value="execution(* com.jonjazzy.demo.business.*.*(..))",    //pointer to intercept
-            value="com.jonjazzy.demo.aspect.CommonJoinPointConfig.businessLayerExecutionPointcut()",    //pointer to intercept
+            value="com.jonjazzy.demo.aspect.CommonJoinPointConfig.trackTimeAnnotation()",    //pointer to intercept
             returning = "result"                                        //put result into this argument
     )  //
     public void afterReturning(JoinPoint joinPoint, Object result)
     {
         //Advice
-        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, result);
+//        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, result);
 
         /*
         *   Recall that Business1 and Business2 method calculateSomething(), returns
@@ -42,14 +42,14 @@ public class AfterAOPAspect
     // if the method throws an exception
     @AfterThrowing(
 //            value="execution(* com.jonjazzy.demo.business.*.*(..))",    //pointer to intercept
-            value="com.jonjazzy.demo.aspect.CommonJoinPointConfig.businessLayerExecutionPointcut()",    //pointer to intercept
+            value="com.jonjazzy.demo.aspect.CommonJoinPointConfig.trackTimeAnnotation()",    //pointer to intercept
             throwing = "exception"                                      //put exception into this argument
     )
 //    public void afterThrowingException(JoinPoint joinPoint, Object exception)
     public void afterThrowingException(JoinPoint joinPoint, Throwable exception)
     {
         //Advice
-        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, exception);
+//        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, exception);
     }
 
     //@After is an advice type which ensures that an advice runs after the method execution.

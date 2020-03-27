@@ -6,15 +6,18 @@ import org.aspectj.lang.annotation.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
-@Configuration  //Specify this is a confiration
+//@Configuration  //Specify this is a confiration
 @Aspect         //Specify this has to do with AOP
+@Component
 public class MethodExecutionCalculationAspect
 {
     private Logger LOGGER = LoggerFactory.getLogger(MethodExecutionCalculationAspect.class);
 
 //    @Around("execution(* com.jonjazzy.demo.data.*.*(..))")
     @Around("com.jonjazzy.demo.aspect.CommonJoinPointConfig.dataLayerExecutionPointcut()")
+//    @Around("@annotation(TrackTime)")
     public void aroundAdvice(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         //my startTime is x
         long startTime = System.currentTimeMillis();

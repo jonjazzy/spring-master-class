@@ -21,7 +21,7 @@ public class AfterAOPAspect
     public void afterReturning(JoinPoint joinPoint, Object result)
     {
         //Advice
-        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, result);
+//        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, result);
 
         /*
         *   Recall that Business1 and Business2 method calculateSomething(), returns
@@ -47,7 +47,7 @@ public class AfterAOPAspect
     public void afterThrowingException(JoinPoint joinPoint, Throwable exception)
     {
         //Advice
-        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, exception);
+//        LOGGER.info("\n\nThis joinPoint --> {}\nReturned with value --> {}", joinPoint, exception);
     }
 
     //@After is an advice type which ensures that an advice runs after the method execution.
@@ -56,7 +56,7 @@ public class AfterAOPAspect
     public void after(JoinPoint joinPoint)
     {
         //Advice
-        LOGGER.info("This joinPoint -->", joinPoint);
+//        LOGGER.info("This joinPoint -->", joinPoint);
     }
 
 }
